@@ -3,35 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+    <group >
+        <item
+            android:icon="@android:drawable/ic_media_play"
+            android:title="@string/spiel_starten" />
+        <item
+            android:icon="@android:drawable/stat_sys_download"
+            android:title="Spiel wiederaufnehmen" />
+    </group>
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="Einstellungen" />
+        <item
+            android:icon="@android:drawable/btn_star"
+            android:title="Bestenliste" />
+        <item
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="Regeln" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Unwichtiges">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:icon="@android:drawable/ic_menu_help"
+                android:title="License" />
         </menu>
     </item>
 
