@@ -68,7 +68,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_einstellungen) {
+            Intent i = new Intent(MainActivity.this, Einstellungen.class);
+            startActivity(i);
             return true;
         }
 
@@ -82,23 +84,32 @@ public class MainActivity extends AppCompatActivity
         Intent i = null;
         int id = item.getItemId();
 
-        if (id == R.id.nav_spiel_starten) {
-
+        if (id == R.id.nav_neues_spiel_starten) {
+            i = new Intent(MainActivity.this, SpielVorbereitung.class);
         } else if (id == R.id.nav_spiel_wiederaufnehmen) {
-
+            i = new Intent(MainActivity.this, SpielDurchfuehrung.class);
         } else if (id == R.id.nav_einstellungen) {
             i = new Intent(MainActivity.this, Einstellungen.class);
         } else if (id == R.id.nav_bestenliste) {
-
+            i = new Intent(MainActivity.this, Bestenliste.class);
         } else if (id == R.id.nav_regeln) {
-
+            i = new Intent(MainActivity.this, Regeln.class);
         } else if (id == R.id.nav_lizenzen) {
-
+            i = new Intent(MainActivity.this, Lizenzen.class);
         }
         startActivity(i);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void onButtonClick(View v){
+        if(v.getId() == R.id.btn_spiel_spielen){
+            //Nur wenn noch kein Spiel besteht
+            //TODO: entsprechendes if-else erstellen
+            Intent i = new Intent(MainActivity.this, SpielVorbereitung.class);
+            startActivity(i);
+        }
     }
 }
