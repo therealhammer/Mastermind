@@ -21,7 +21,26 @@
         </activity>
         <activity
             android:name=".Einstellungen"
-            android:label="Einstellungen"/>
+            android:label="@string/einstellungen"/>
+        <activity
+            android:name=".SpielVorbereitung"
+            android:label="@string/spiel_vorbereitung"/>
+        <activity
+            android:name=".SpielDurchfuehrung"
+            android:label="@string/spiel_durchfuehrung"/>
+        <activity
+            android:name=".Bestenliste"
+            android:label="@string/bestenliste"/>
+        <activity
+            android:name=".Lizenzen"
+            android:label="@string/lizenzen"/>
+        <activity
+            android:name=".Regeln"
+            android:label="@string/regeln"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -7,16 +7,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/einstellungen"
+        android:text="@string/lizenzen"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/wert" />
-
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="@string/lorem_ipsum" />
 </LinearLayout>

@@ -5,9 +5,9 @@
 
     <group >
         <item
-            android:id="@+id/nav_spiel_starten"
+            android:id="@+id/nav_neues_spiel_starten"
             android:icon="@android:drawable/ic_media_play"
-            android:title="@string/spiel_starten" />
+            android:title="@string/neues_spiel_starten" />
         <item
             android:id="@+id/nav_spiel_wiederaufnehmen"
             android:icon="@android:drawable/stat_sys_download"
@@ -17,7 +17,7 @@
         <item
             android:id="@+id/nav_einstellungen"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Einstellungen" />
+            android:title="@string/einstellungen" />
         <item
             android:id="@+id/nav_bestenliste"
             android:icon="@android:drawable/btn_star"
