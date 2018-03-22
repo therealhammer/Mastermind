@@ -5,30 +5,35 @@
 
     <group >
         <item
+            android:id="@+id/nav_spiel_starten"
             android:icon="@android:drawable/ic_media_play"
             android:title="@string/spiel_starten" />
         <item
+            android:id="@+id/nav_spiel_wiederaufnehmen"
             android:icon="@android:drawable/stat_sys_download"
-            android:title="Spiel wiederaufnehmen" />
+            android:title="@string/spiel_wiederaufnehmen" />
     </group>
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_einstellungen"
             android:icon="@drawable/ic_menu_manage"
             android:title="Einstellungen" />
         <item
+            android:id="@+id/nav_bestenliste"
             android:icon="@android:drawable/btn_star"
-            android:title="Bestenliste" />
+            android:title="@string/bestenliste" />
         <item
+            android:id="@+id/nav_regeln"
             android:icon="@android:drawable/ic_dialog_info"
-            android:title="Regeln" />
+            android:title="@string/regeln" />
     </group>
 
-    <item android:title="Unwichtiges">
+    <item android:title="@string/unwichtiges">
         <menu>
             <item
+                android:id="@+id/nav_lizenzen"
                 android:icon="@android:drawable/ic_menu_help"
-                android:title="License" />
+                android:title="@string/lizenzen" />
         </menu>
     </item>
 
