@@ -2,8 +2,6 @@ package de.dhbw.tinf16k.mastermind;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,22 +19,22 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -60,7 +58,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_einstellungen) {
-            Intent i = new Intent(MainActivity.this, Einstellungen.class);
+            Intent i = new Intent(MainActivity.this, Settings.class);
             startActivity(i);
             return true;
         }
@@ -75,18 +73,18 @@ public class MainActivity extends AppCompatActivity
         Intent i = null;
         int id = item.getItemId();
 
-        if (id == R.id.nav_neues_spiel_starten) {
-            i = new Intent(MainActivity.this, SpielVorbereitung.class);
-        } else if (id == R.id.nav_spiel_wiederaufnehmen) {
-            i = new Intent(MainActivity.this, SpielDurchfuehrung.class);
-        } else if (id == R.id.nav_einstellungen) {
-            i = new Intent(MainActivity.this, Einstellungen.class);
-        } else if (id == R.id.nav_bestenliste) {
-            i = new Intent(MainActivity.this, Bestenliste.class);
-        } else if (id == R.id.nav_regeln) {
-            i = new Intent(MainActivity.this, Regeln.class);
-        } else if (id == R.id.nav_lizenzen) {
-            i = new Intent(MainActivity.this, Lizenzen.class);
+        if (id == R.id.nav_new_game) {
+            i = new Intent(MainActivity.this, GamePrep.class);
+        } else if (id == R.id.nav_resume_game) {
+            i = new Intent(MainActivity.this, Game.class);
+        } else if (id == R.id.nav_settings) {
+            i = new Intent(MainActivity.this, Settings.class);
+        } else if (id == R.id.nav_highscores) {
+            i = new Intent(MainActivity.this, Highscores.class);
+        } else if (id == R.id.nav_rules) {
+            i = new Intent(MainActivity.this, Rules.class);
+        } else if (id == R.id.nav_licenses) {
+            i = new Intent(MainActivity.this, Licenses.class);
         }
         startActivity(i);
 
@@ -96,10 +94,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void onButtonClick(View v){
-        if(v.getId() == R.id.btn_spiel_spielen){
-            //Nur wenn noch kein Spiel besteht
-            //TODO: entsprechendes if-else erstellen
-            Intent i = new Intent(MainActivity.this, SpielVorbereitung.class);
+        if(v.getId() == R.id.btn_play_game){
+            //Only if there is no game yet, else resume game
+            //TODO: create if-else
+            Intent i = new Intent(MainActivity.this, GamePrep.class);
             startActivity(i);
         }
     }

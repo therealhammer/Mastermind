@@ -7,6 +7,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bestenliste"
+        android:text="@string/licenses"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lorem_ipsum" />
 </LinearLayout>

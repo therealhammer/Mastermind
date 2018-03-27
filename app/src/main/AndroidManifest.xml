@@ -20,23 +20,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Einstellungen"
-            android:label="@string/einstellungen"/>
+            android:name=".Settings"
+            android:label="@string/settings"/>
         <activity
-            android:name=".SpielVorbereitung"
-            android:label="@string/spiel_vorbereitung"/>
+            android:name=".GamePrep"
+            android:label="@string/game_prep"/>
         <activity
-            android:name=".SpielDurchfuehrung"
-            android:label="@string/spiel_durchfuehrung"/>
+            android:name=".Game"
+            android:label="@string/game"/>
         <activity
-            android:name=".Bestenliste"
-            android:label="@string/bestenliste"/>
+            android:name=".Highscores"
+            android:label="@string/highscores"/>
         <activity
-            android:name=".Lizenzen"
-            android:label="@string/lizenzen"/>
+            android:name=".Licenses"
+            android:label="@string/licenses"/>
         <activity
-            android:name=".Regeln"
-            android:label="@string/regeln"/>
+            android:name=".Rules"
+            android:label="@string/rules"/>
 
         <meta-data
             android:name="preloaded_fonts"
