@@ -18,4 +18,5 @@
     <string name="game_prep">Spiel-Vorbereitung</string>
     <string name="game">Spiel-Durchführung</string>
     <string name="lorem_ipsum">Lorem Ipsum</string>
+    <string name="copyright">© 2018 Spencer Young, Thierry Hammer, Thomas Kuhn, Jonas Bauch</string>
 </resources>
