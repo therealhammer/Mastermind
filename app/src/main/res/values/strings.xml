@@ -4,18 +4,18 @@
     <string name="navigation_drawer_open">Navigation öffnen</string>
     <string name="navigation_drawer_close">Navigation schließen</string>
 
-    <string name="neues_spiel_starten">neues Spiel starten</string>
-    <string name="spiel_starten">Spiel starten</string>
-    <string name="spiel_wiederaufnehmen">Spiel wiederaufnehmen</string>
-    <string name="einstellungen">Einstellungen</string>
-    <string name="bestenliste">Bestenliste</string>
-    <string name="lizenzen">Lizenzen</string>
-    <string name="unwichtiges">Unwichtiges</string>
-    <string name="regeln">Regeln</string>
+    <string name="new_game">neues Spiel starten</string>
+    <string name="start_game">Spiel starten</string>
+    <string name="resume_game">Spiel wiederaufnehmen</string>
+    <string name="settings">Einstellungen</string>
+    <string name="highscores">Bestenliste</string>
+    <string name="licenses">Lizenzen</string>
+    <string name="unimportant_stuff">Unwichtiges</string>
+    <string name="rules">Regeln</string>
     <string name="mastermind">Mastermind</string>
     <string name="the_game_dam_dam_daaam">The game! (dam dam daaam)</string>
-    <string name="wert">Wert</string>
-    <string name="spiel_vorbereitung">Spiel-Vorbereitung</string>
-    <string name="spiel_durchfuehrung">Spiel-Durchführung</string>
+    <string name="Value">Wert</string>
+    <string name="game_prep">Spiel-Vorbereitung</string>
+    <string name="game">Spiel-Durchführung</string>
     <string name="lorem_ipsum">Lorem Ipsum</string>
 </resources>

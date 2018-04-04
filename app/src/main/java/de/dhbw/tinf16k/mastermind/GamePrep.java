@@ -9,16 +9,16 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 
-public class SpielVorbereitung extends Activity{
+public class GamePrep extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.spiel_vorbereitung);
+        setContentView(R.layout.game_prep);
     }
 
     public void onButtonClick(View v){
-        if(v.getId() == R.id.btn_spiel_erstellen){
-            Intent i = new Intent(SpielVorbereitung.this, SpielDurchfuehrung.class);
+        if(v.getId() == R.id.btn_create_game){
+            Intent i = new Intent(GamePrep.this, Game.class);
             startActivity(i);
         }
     }

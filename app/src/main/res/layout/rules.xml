@@ -7,11 +7,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/lizenzen"
+        android:text="@string/rules"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/lorem_ipsum" />
+        android:text="Lorem Ipsum" />
 </LinearLayout>

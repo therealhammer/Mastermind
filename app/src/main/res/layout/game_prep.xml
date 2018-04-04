@@ -7,11 +7,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/regeln"
+        android:text="@string/game_prep"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
-    <TextView
+    <Button
+        android:id="@+id/btn_create_game"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lorem Ipsum" />
+        android:fontFamily="@font/ubuntu_medium"
+        android:onClick="onButtonClick"
+        android:text="@string/start_game" />
 </LinearLayout>
