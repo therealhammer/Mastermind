@@ -15,72 +15,85 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TableRow
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    style="@android:style/Widget.DeviceDefault.Light.ImageButton"
-                    android:layout_width="37dp"
-                    android:layout_height="36dp"
-                    android:contentDescription="@string/lorem_ipsum"
-                    android:elevation="0dp"
-                    app:srcCompat="@color/c1" />
+                <Button
+                    android:id="@+id/dummyButton"
+                    android:layout_width="36sp"
+                    android:layout_height="36sp"
+                    android:layout_margin="2sp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/c1" />
 
-                <ImageButton
-                    android:id="@+id/imageButton2"
-                    style="@android:style/Widget.DeviceDefault.Light.ImageButton"
-                    android:layout_width="37dp"
-                    android:layout_height="36dp"
-                    android:contentDescription="@string/lorem_ipsum"
-                    android:elevation="0dp"
-                    app:srcCompat="@color/c2" />
+                <Button
+                    android:id="@+id/dummyButton2"
+                    android:layout_width="36sp"
+                    android:layout_height="36sp"
+                    android:layout_margin="2sp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/c2" />
 
-                <ImageButton
-                    android:id="@+id/imageButton3"
-                    style="@android:style/Widget.DeviceDefault.Light.ImageButton"
-                    android:layout_width="37dp"
-                    android:layout_height="36dp"
-                    android:contentDescription="@string/lorem_ipsum"
-                    android:elevation="0dp"
-                    app:srcCompat="@color/c3" />
+                <Button
+                    android:id="@+id/dummyButton3"
+                    android:layout_width="36sp"
+                    android:layout_height="36sp"
+                    android:layout_margin="2sp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/c3" />
 
-                <ImageButton
-                    android:id="@+id/imageButton4"
-                    style="@android:style/Widget.DeviceDefault.Light.ImageButton"
-                    android:layout_width="37dp"
-                    android:layout_height="36dp"
-                    android:contentDescription="@string/lorem_ipsum"
-                    android:elevation="0dp"
-                    app:srcCompat="@color/c4" />
+                <Button
+                    android:id="@+id/dummyButton4"
+                    android:layout_width="36sp"
+                    android:layout_height="36sp"
+                    android:layout_margin="2sp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/c4" />
 
-                <ImageButton
-                    android:id="@+id/imageButton5"
-                    style="@android:style/Widget.DeviceDefault.Light.ImageButton"
-                    android:layout_width="37dp"
-                    android:layout_height="36dp"
-                    android:contentDescription="@string/lorem_ipsum"
-                    android:elevation="0dp"
-                    app:srcCompat="@color/c5" />
+                <Button
+                    android:id="@+id/dummyButton5"
+                    android:layout_width="36sp"
+                    android:layout_height="36sp"
+                    android:layout_margin="2sp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/c5" />
 
-                <ImageButton
-                    android:id="@+id/imageButton6"
-                    style="@android:style/Widget.DeviceDefault.Light.ImageButton"
-                    android:layout_width="37dp"
-                    android:layout_height="36dp"
-                    android:contentDescription="@string/lorem_ipsum"
-                    android:elevation="0dp"
-                    app:srcCompat="@color/c6" />
+                <Button
+                    android:id="@+id/dummyButton6"
+                    android:layout_width="36sp"
+                    android:layout_height="36sp"
+                    android:layout_margin="2sp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/c6" />
+
+                <Button
+                    android:id="@+id/dummyButton7"
+                    android:layout_width="36sp"
+                    android:layout_height="36sp"
+                    android:layout_margin="2sp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/c7" />
+
+                <Button
+                    android:id="@+id/dummyButton8"
+                    android:layout_width="36sp"
+                    android:layout_height="36sp"
+                    android:layout_margin="2sp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/c8" />
 
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="right"
+                    android:gravity="end"
                     android:orientation="horizontal">
 
                     <TableRow
@@ -89,21 +102,30 @@
 
                         <ImageView
                             android:id="@+id/imageView1"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            app:srcCompat="@color/gray" />
+                            android:layout_width="18sp"
+                            android:layout_height="18sp"
+                            android:layout_margin="1sp"
+                            android:background="@drawable/circle"
+                            android:backgroundTint="@color/gray"
+                            android:contentDescription="@string/lorem_ipsum" />
 
                         <ImageView
                             android:id="@+id/imageView2"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            app:srcCompat="@android:color/black" />
+                            android:layout_width="18sp"
+                            android:layout_height="18sp"
+                            android:layout_margin="1sp"
+                            android:background="@drawable/circle"
+                            android:backgroundTint="@color/black"
+                            android:contentDescription="@string/lorem_ipsum" />
 
                         <ImageView
                             android:id="@+id/imageView3"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            app:srcCompat="@color/gray" />
+                            android:layout_width="18sp"
+                            android:layout_height="18sp"
+                            android:layout_margin="1sp"
+                            android:background="@drawable/circle"
+                            android:backgroundTint="@color/gray"
+                            android:contentDescription="@string/lorem_ipsum" />
 
                     </TableRow>
 
@@ -113,115 +135,37 @@
 
                         <ImageView
                             android:id="@+id/imageView42"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            app:srcCompat="@android:color/black" />
+                            android:layout_width="18sp"
+                            android:layout_height="18sp"
+                            android:layout_margin="1sp"
+                            android:background="@drawable/circle"
+                            android:backgroundTint="@color/black"
+                            android:contentDescription="@string/lorem_ipsum" />
 
                         <ImageView
                             android:id="@+id/imageView52"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            app:srcCompat="@color/gray" />
+                            android:layout_width="18sp"
+                            android:layout_height="18sp"
+                            android:layout_margin="1sp"
+                            android:background="@drawable/circle"
+                            android:backgroundTint="@color/gray"
+                            android:contentDescription="@string/lorem_ipsum" />
 
                         <ImageView
                             android:id="@+id/imageView6"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            app:srcCompat="@android:color/black" />
+                            android:layout_width="18sp"
+                            android:layout_height="18sp"
+                            android:layout_margin="1sp"
+                            android:background="@drawable/circle"
+                            android:backgroundTint="@color/black"
+                            android:contentDescription="@string/lorem_ipsum" />
 
                     </TableRow>
 
                 </TableLayout>
+            </LinearLayout>
 
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <ImageButton
-                    android:id="@+id/imageButtonr2"
-                    style="@android:style/Widget.DeviceDefault.Light.ImageButton"
-                    android:layout_width="37dp"
-                    android:layout_height="36dp"
-                    android:contentDescription="@string/lorem_ipsum"
-                    android:elevation="0dp"
-                    app:srcCompat="@color/c7" />
-
-                <ImageButton
-                    android:id="@+id/imageButton2r2"
-                    style="@android:style/Widget.DeviceDefault.Light.ImageButton"
-                    android:layout_width="37dp"
-                    android:layout_height="36dp"
-                    android:contentDescription="@string/lorem_ipsum"
-                    android:elevation="0dp"
-                    app:srcCompat="@color/c8" />
-
-                <ImageButton
-                    android:id="@+id/imageButton32"
-                    style="@android:style/Widget.DeviceDefault.Light.ImageButton"
-                    android:layout_width="37dp"
-                    android:layout_height="36dp"
-                    android:contentDescription="@string/lorem_ipsum"
-                    android:elevation="0dp"
-                    app:srcCompat="@color/empty" />
-
-                <ImageButton
-                    android:id="@+id/imageButton42"
-                    style="@android:style/Widget.DeviceDefault.Light.ImageButton"
-                    android:layout_width="37dp"
-                    android:layout_height="36dp"
-                    android:contentDescription="@string/lorem_ipsum"
-                    android:elevation="0dp"
-                    app:srcCompat="@color/c1" />
-
-                <TableLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="right"
-                    android:orientation="horizontal">
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/imageView12"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            app:srcCompat="@color/gray" />
-
-                        <ImageView
-                            android:id="@+id/imageView22"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            app:srcCompat="@android:color/black" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/imageView4"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            app:srcCompat="@android:color/black" />
-
-                        <ImageView
-                            android:id="@+id/imageView5"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            app:srcCompat="@color/gray" />
-
-                    </TableRow>
-
-                </TableLayout>
-
-            </TableRow>
-
-        </TableLayout>
+        </LinearLayout>
     </ScrollView>
 
 </LinearLayout>
