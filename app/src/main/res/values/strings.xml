@@ -19,4 +19,10 @@
     <string name="game">Spiel-Durchführung</string>
     <string name="lorem_ipsum">Lorem Ipsum</string>
     <string name="copyright">© 2018 Spencer Young, Thierry Hammer, Thomas Kuhn, Jonas Bauch</string>
+    <string name="anzahl_farben">Anzahl der Farben:</string>
+    <string name="anzahl_stellen">Anzahl der Stellen</string>
+    <string name="leere_stellen">Dürfen Stellen leer sein?</string>
+    <string name="farben_mehrfach">Dürfen Farben mehrfach auftreten?</string>
+    <string name="anzahl_runden">Anzahl an Runden</string>
+    <string name="m_vs_m">Mensch gegen Maschine?</string>
 </resources>
