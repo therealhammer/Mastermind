@@ -11,6 +11,11 @@
         android:text="@string/game"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
+    <TextView
+        android:id="@+id/testText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">

@@ -12,116 +12,146 @@
         android:text="@string/game_prep"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/anzahl_farben"
+        android:labelFor="@+id/nfAnzahlFarben"
+        android:text="@string/anzahl_farben" />
+
+    <RadioGroup
+        android:id="@+id/rgAnzahlFarben"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/rbFarben5"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbFarben5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_5" />
+
+        <RadioButton
+            android:id="@+id/rbFarben6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_6" />
+
+        <RadioButton
+            android:id="@+id/rbFarben8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_8" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/anzahl_stellen"
+        android:labelFor="@+id/nfAnzahlStellen"
+        android:text="@string/anzahl_stellen" />
+
+    <RadioGroup
+        android:id="@+id/rgAnzahlStellen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/rbStellen3"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbStellen3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_3" />
+
+        <RadioButton
+            android:id="@+id/rbStellen4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_4" />
+
+        <RadioButton
+            android:id="@+id/rbStellen5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_5" />
+
+        <RadioButton
+            android:id="@+id/rbStellen6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_6" />
+
+        <RadioButton
+            android:id="@+id/rbStellen8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_8" />
+
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/cbLeereStellen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/leere_stellen" />
+
+    <CheckBox
+        android:id="@+id/cbFarbenMehrfach"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/farben_mehrfach" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/anzahl_runden"
+        android:labelFor="@+id/nfAnzahlRunden"
+        android:text="@string/anzahl_runden" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView"
+        <SeekBar
+            android:id="@+id/sbRunden"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="@string/anzahl_farben"
-            android:labelFor="@+id/nfAnzahlFarben"
-            android:text="@string/anzahl_farben" />
-
-        <EditText
-            android:id="@+id/nfAnzahlFarben"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="numberDecimal" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/anzahl_stellen"
-            android:labelFor="@+id/nfAnzahlStellen"
-            android:text="@string/anzahl_stellen" />
-
-        <EditText
-            android:id="@+id/nfAnzahlStellen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="numberDecimal" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Switch
-            android:id="@+id/swLeereStellen"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/leere_stellen" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Switch
-            android:id="@+id/swFarbenMehrfach"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/farben_mehrfach" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/anzahl_runden"
-            android:labelFor="@+id/nfAnzahlRunden"
-            android:text="@string/anzahl_runden" />
+            android:max="99"
+            android:progress="9" />
 
         <EditText
             android:id="@+id/nfAnzahlRunden"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="5"
             android:ems="10"
-            android:inputType="numberDecimal" />
+            android:inputType="number" />
 
     </LinearLayout>
 
-    <LinearLayout
+    <CheckBox
+        android:id="@+id/cbComGame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Switch
-            android:id="@+id/swComGame"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/m_vs_m" />
-    </LinearLayout>
+        android:text="@string/m_vs_m" />
 
     <Button
         android:id="@+id/btn_create_game"
