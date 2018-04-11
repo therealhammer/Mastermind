@@ -5,12 +5,27 @@ package de.dhbw.tinf16k.mastermind;
  */
 
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.util.TypedValue;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 
-public class Game extends Activity {
+import java.util.LinkedList;
+import java.util.List;
+
+public class Game extends Activity implements View.OnClickListener {
     private int iAnzahlFarben, iAnzahlStellen, iAnzahlRunden;
     private boolean bLeereStellen, bFarbenMehrfach, bComGame;
+    private List<LinearLayout> rowList = new LinkedList<>();
+    private int iBtnSize;
+    private Drawable drawableDefaultCircle;
+    private LinearLayout.LayoutParams lpBtnLayout, lpEvalPegLayout;
+    private LinearLayout llGameBoard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +42,59 @@ public class Game extends Activity {
             bComGame = extras.getBoolean("Mensch-gegen-Maschine");
         }
 
-        TextView testTv = findViewById(R.id.testText);
-        String sTestString = "Anz. F.: " + String.valueOf(iAnzahlFarben) +
-                "\nAnz. Stellen: " + String.valueOf(iAnzahlStellen) +
-                "\nleere Stellen: " + String.valueOf(bLeereStellen) +
-                "\nFarben mehrfach: " + String.valueOf(bFarbenMehrfach) +
-                "\nAnz. Runden: " + String.valueOf(iAnzahlRunden) +
-                "\nMensch gegen Maschine: " + String.valueOf(bComGame);
-        testTv.setText(sTestString);
+        llGameBoard = findViewById(R.id.llBoard);
+
+        iBtnSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics());
+        lpBtnLayout = new LinearLayout.LayoutParams(iBtnSize, iBtnSize);
+        lpBtnLayout.setMargins(iBtnSize / 15, iBtnSize / 15, iBtnSize / 15, iBtnSize / 15);
+        lpEvalPegLayout = new LinearLayout.LayoutParams(iBtnSize / 2, iBtnSize / 2);
+        lpEvalPegLayout.setMargins(iBtnSize / 15, iBtnSize / 15, iBtnSize / 15, iBtnSize / 15);
+        drawableDefaultCircle = getDrawable(R.drawable.circle);
+        drawableDefaultCircle.setTint(getResources().getColor(R.color.white));
+
+        createRow();
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.btnCommitTurn) {
+            createRow();
+        }
+    }
+
+    private void createRow() {
+        rowList.add(new LinearLayout(this));
+        for (int i = 0; i < iAnzahlStellen; i++) {
+            Button tmpButton = new Button(this);
+            tmpButton.setId(i);
+            tmpButton.setOnClickListener(this);
+            tmpButton.setBackground(drawableDefaultCircle);
+            tmpButton.setLayoutParams(lpBtnLayout);
+            rowList.get(rowList.size() - 1).addView(tmpButton);
+        }
+
+        LinearLayout tmpEval = new LinearLayout(this);
+        tmpEval.setOrientation(LinearLayout.VERTICAL);
+
+        LinearLayout tmpEvalRow1 = new LinearLayout(this);
+        LinearLayout tmpEvalRow2 = new LinearLayout(this);
+
+        for (int i = 0; i < iAnzahlStellen; i++) {
+            ImageView tmpEvalPeg = new ImageView(this);
+            tmpEvalPeg.setId(i);
+            tmpEvalPeg.setBackground(drawableDefaultCircle);
+            tmpEvalPeg.setLayoutParams(lpEvalPegLayout);
+            if (i < iAnzahlStellen / 2)
+                tmpEvalRow1.addView(tmpEvalPeg);
+            else
+                tmpEvalRow2.addView(tmpEvalPeg);
+        }
+        //rowList.get(rowList.size() - 1).addView(tmpEvalRow1);
+        tmpEval.addView(tmpEvalRow1);
+        tmpEval.addView(tmpEvalRow2);
+        rowList.get(rowList.size() - 1).addView(tmpEval);
+
+        llGameBoard.addView(rowList.get(rowList.size() - 1));
     }
 }
