@@ -79,6 +79,8 @@ public class GamePrep extends Activity {
             i.putExtra("leere-Stellen", bLeereStellen);
             i.putExtra("Farben-mehrfach", bFarbenMehrfach);
             i.putExtra("Anzahl-Runden", iAnzahlRunden);
+            i.putExtra("Mensch-gegen-Maschine", bComGame);
+
             startActivity(i);
         } else if (v.getId() == R.id.rbFarben5) {
         }

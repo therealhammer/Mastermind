@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class Game extends Activity {
     private int iAnzahlFarben, iAnzahlStellen, iAnzahlRunden;
-    private boolean bLeereStellen, bFarbenMehrfach;
+    private boolean bLeereStellen, bFarbenMehrfach, bComGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,7 @@ public class Game extends Activity {
             bLeereStellen = extras.getBoolean("leere-Stellen");
             bFarbenMehrfach = extras.getBoolean("Farben-mehrfach");
             iAnzahlRunden = extras.getInt("Anzahl-Runden");
+            bComGame = extras.getBoolean("Mensch-gegen-Maschine");
         }
 
         TextView testTv = findViewById(R.id.testText);
@@ -31,7 +32,8 @@ public class Game extends Activity {
                 "\nAnz. Stellen: " + String.valueOf(iAnzahlStellen) +
                 "\nleere Stellen: " + String.valueOf(bLeereStellen) +
                 "\nFarben mehrfach: " + String.valueOf(bFarbenMehrfach) +
-                "\nAnz. Runden: " + String.valueOf(iAnzahlRunden);
+                "\nAnz. Runden: " + String.valueOf(iAnzahlRunden) +
+                "\nMensch gegen Maschine: " + String.valueOf(bComGame);
         testTv.setText(sTestString);
     }
 }
