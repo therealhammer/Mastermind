@@ -13,13 +13,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="chooseColor"
-                android:text="Test Coloer" />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,340 +46,69 @@
                 android:layout_weight="1"
                 android:text="Farben" />
 
-            <LinearLayout
+            <Button
+                android:id="@+id/b1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:background="@color/c1"
+                android:onClick="chooseColor"
+                android:text="Farbe 1" />
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Farbe 1" />
-
-                <EditText
-                    android:id="@+id/editText"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="rr" />
-
-                <EditText
-                    android:id="@+id/editText4"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="gg" />
-
-                <EditText
-                    android:id="@+id/editText3"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="bb" />
-            </LinearLayout>
-
-            <LinearLayout
+            <Button
+                android:id="@+id/b2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:background="@color/c2"
+                android:onClick="chooseColor"
+                android:text="Farbe 1" />
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Farbe 2" />
-
-                <EditText
-                    android:id="@+id/editText5"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="rr" />
-
-                <EditText
-                    android:id="@+id/editText6"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="gg" />
-
-                <EditText
-                    android:id="@+id/editText7"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="bb" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <Button
+                android:id="@+id/b3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:background="@color/c3"
+                android:onClick="chooseColor"
+                android:text="Farbe 3" />
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Farbe 3" />
-
-                <EditText
-                    android:id="@+id/editText8"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="rr" />
-
-                <EditText
-                    android:id="@+id/editText9"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="gg" />
-
-                <EditText
-                    android:id="@+id/editText10"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="bb" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <Button
+                android:id="@+id/b4"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:background="@color/c4"
+                android:onClick="chooseColor"
+                android:text="Farbe 4" />
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Farbe 4" />
-
-                <EditText
-                    android:id="@+id/editText11"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="rr" />
-
-                <EditText
-                    android:id="@+id/editText12"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="gg" />
-
-                <EditText
-                    android:id="@+id/editText13"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="bb" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <Button
+                android:id="@+id/b5"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:background="@color/c5"
+                android:onClick="chooseColor"
+                android:text="Farbe 5" />
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Farbe 5" />
-
-                <EditText
-                    android:id="@+id/editText14"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="rr" />
-
-                <EditText
-                    android:id="@+id/editText15"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="gg" />
-
-                <EditText
-                    android:id="@+id/editText16"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="bb" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <Button
+                android:id="@+id/b6"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:background="@color/c6"
+                android:onClick="chooseColor"
+                android:text="Farbe 6" />
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Farbe 6" />
-
-                <EditText
-                    android:id="@+id/editText17"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="rr" />
-
-                <EditText
-                    android:id="@+id/editText18"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="gg" />
-
-                <EditText
-                    android:id="@+id/editText19"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="bb" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <Button
+                android:id="@+id/b7"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:background="@color/c7"
+                android:onClick="chooseColor"
+                android:text="Farbe 7" />
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Farbe 7" />
-
-                <EditText
-                    android:id="@+id/editText20"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="rr" />
-
-                <EditText
-                    android:id="@+id/editText21"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="gg" />
-
-                <EditText
-                    android:id="@+id/editText22"
-                    android:layout_height="wrap_content"
-                    android:layout_width="20dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="bb" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <Button
+                android:id="@+id/b8"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Farbe 8" />
-
-                <EditText
-                    android:id="@+id/editText23"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="rr" />
-
-                <EditText
-                    android:id="@+id/editText24"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="gg" />
-
-                <EditText
-                    android:id="@+id/editText25"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="bb" />
-
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:background="@color/c8"
+                android:onClick="chooseColor"
+                android:text="Farbe 8" />
 
             <RadioGroup
                 android:layout_width="match_parent"
