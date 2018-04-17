@@ -31,4 +31,14 @@
     <string name="_3">3</string>
     <string name="_4">4</string>
     <string name="zug_beenden">Zug beenden</string>
+    <string name="standard_values">Standard-Werte</string>
+    <string name="color_1">Farbe 1</string>
+    <string name="color_3">Farbe 3</string>
+    <string name="color_4">Farbe 4</string>
+    <string name="color_6">Farbe 6</string>
+    <string name="color_5">Farbe 5</string>
+    <string name="color_7">Farbe 7</string>
+    <string name="colors">Farben</string>
+    <string name="color_8">Farbe 8</string>
+    <string name="save_settings">Einstellungen speichern</string>
 </resources>

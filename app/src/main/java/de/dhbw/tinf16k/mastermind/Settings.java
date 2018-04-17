@@ -1,27 +1,19 @@
 package de.dhbw.tinf16k.mastermind;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.graphics.Color;
-import android.os.Bundle;
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 
-
 import com.flask.colorpicker.ColorPickerView;
-import com.flask.colorpicker.OnColorChangedListener;
 import com.flask.colorpicker.OnColorSelectedListener;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;

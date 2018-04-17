@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/tvStandards2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/settings"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -11,202 +21,245 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvStandards"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/settings"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+                android:text="@string/standard_values"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/tvColorNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/anzahl_farben"
+                android:labelFor="@+id/nfAnzahlFarben"
+                android:text="@string/anzahl_farben" />
+
+            <RadioGroup
+                android:id="@+id/rgAnzahlFarben"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@+id/rbFarben5"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbFarben5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/_5" />
+
+                <RadioButton
+                    android:id="@+id/rbFarben6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/_6" />
+
+                <RadioButton
+                    android:id="@+id/rbFarben8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/_8" />
+
+            </RadioGroup>
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:text="Standard Spiel:" />
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/anzahl_stellen"
+                android:labelFor="@+id/nfAnzahlStellen"
+                android:text="@string/anzahl_stellen" />
+
+            <RadioGroup
+                android:id="@+id/rgAnzahlStellen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@+id/rbStellen3"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbStellen3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/_3" />
+
+                <RadioButton
+                    android:id="@+id/rbStellen4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/_4" />
+
+                <RadioButton
+                    android:id="@+id/rbStellen5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/_5" />
+
+                <RadioButton
+                    android:id="@+id/rbStellen6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/_6" />
+
+                <RadioButton
+                    android:id="@+id/rbStellen8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/_8" />
+
+            </RadioGroup>
+
+            <CheckBox
+                android:id="@+id/cbLeereStellen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/leere_stellen" />
+
+            <CheckBox
+                android:id="@+id/cbFarbenMehrfach"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/farben_mehrfach" />
 
             <TextView
+                android:id="@+id/tvAnzRunden"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Maximal mögliche Eingaben" />
+                android:contentDescription="@string/anzahl_runden"
+                android:labelFor="@+id/nfAnzahlRunden"
+                android:text="@string/anzahl_runden" />
 
-            <SeekBar
-                android:id="@+id/seekBar"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:max="25"
-                android:progress="10"
-                android:thumb="?android:attr/scrollbarThumbVertical" />
+                android:orientation="horizontal">
+
+                <SeekBar
+                    android:id="@+id/sbRunden"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="99"
+                    android:progress="9" />
+
+                <EditText
+                    android:id="@+id/nfAnzahlRunden"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:ems="10"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cbComGame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/m_vs_m" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
                 android:layout_weight="1"
-                android:text="Farben" />
+                android:text="@string/colors"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <Button
                 android:id="@+id/b1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/c1"
+                android:backgroundTint="@color/c1"
                 android:onClick="chooseColor"
-                android:text="Farbe 1" />
+                android:text="@string/color_1" />
 
             <Button
                 android:id="@+id/b2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/c2"
+                android:backgroundTint="@color/c2"
                 android:onClick="chooseColor"
-                android:text="Farbe 1" />
+                android:text="@string/color_1" />
 
             <Button
                 android:id="@+id/b3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/c3"
+                android:backgroundTint="@color/c3"
                 android:onClick="chooseColor"
-                android:text="Farbe 3" />
+                android:text="@string/color_3" />
 
             <Button
                 android:id="@+id/b4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/c4"
+                android:backgroundTint="@color/c4"
                 android:onClick="chooseColor"
-                android:text="Farbe 4" />
+                android:text="@string/color_4" />
 
             <Button
                 android:id="@+id/b5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/c5"
+                android:backgroundTint="@color/c5"
                 android:onClick="chooseColor"
-                android:text="Farbe 5" />
+                android:text="@string/color_5" />
 
             <Button
                 android:id="@+id/b6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/c6"
+                android:backgroundTint="@color/c6"
                 android:onClick="chooseColor"
-                android:text="Farbe 6" />
+                android:text="@string/color_6" />
 
             <Button
                 android:id="@+id/b7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/c7"
+                android:backgroundTint="@color/c7"
                 android:onClick="chooseColor"
-                android:text="Farbe 7" />
+                android:text="@string/color_7" />
 
             <Button
                 android:id="@+id/b8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/c8"
+                android:backgroundTint="@color/c8"
                 android:onClick="chooseColor"
-                android:text="Farbe 8" />
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_weight="1"
-                    android:text="Anzahl  Löcher" />
-
-                <RadioButton
-                    android:id="@+id/radioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="3" />
-
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="4" />
-
-                <RadioButton
-                    android:id="@+id/radioButton3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="5" />
-
-                <RadioButton
-                    android:id="@+id/radioButton4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="6" />
-
-                <RadioButton
-                    android:id="@+id/radioButton5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="8" />
-            </RadioGroup>
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_weight="1"
-                    android:text="Anzahl  Farben" />
-
-                <RadioButton
-                    android:id="@+id/radioButton3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="5" />
-
-                <RadioButton
-                    android:id="@+id/radioButton4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="6" />
-
-                <RadioButton
-                    android:id="@+id/radioButton5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="8" />
-
-            </RadioGroup>
+                android:text="@string/color_8" />
 
 
-                    <!--<com.jrummyapps.android.colorpicker.ColorPreference
+            <!--<com.jrummyapps.android.colorpicker.ColorPreference
                         android:defaultValue="@color/c1"
                         android:key="default_color"
                         android:summary="Dings1"
                         android:title="Dings2"/>-->
 
 
-
-
             <Button
                 android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Einstellungen speichern" />
+                android:text="@string/save_settings" />
 
         </LinearLayout>
     </ScrollView>
