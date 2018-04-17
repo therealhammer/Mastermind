@@ -43,7 +43,7 @@ public class Game extends Activity implements View.OnClickListener {
         llGameBoard = findViewById(R.id.llBoard);
         llPegSelection = findViewById(R.id.llPegSelection);
 
-        iBtnSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics());
+        iBtnSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 26, getResources().getDisplayMetrics());
         lpEvalPinLayout = new LinearLayout.LayoutParams(iBtnSize / 2, iBtnSize / 2);
         lpEvalPinLayout.setMargins(iBtnSize / 15, iBtnSize / 15, iBtnSize / 15, iBtnSize / 15);
         lpBtnLayout = new LinearLayout.LayoutParams(iBtnSize, iBtnSize);
