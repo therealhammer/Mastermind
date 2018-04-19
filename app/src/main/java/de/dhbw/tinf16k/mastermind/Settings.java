@@ -28,24 +28,44 @@ public class Settings extends Activity {
     }
     private void read()
     {
-        String data = "";
-
+        writeFile("<mastermind>\n");
+        readFile();
+    }
+    private void writeFile(String data)
+    {
         try {
-            //new FileOutputStream("testfile", true).close();
+
             FileOutputStream fOut = openFileOutput("testfile", MODE_PRIVATE);
             OutputStreamWriter osw = new OutputStreamWriter(fOut);
-            osw.write("Hier is ja data drinne!");
+            osw.write("Hier is ja data drinne!\n asdofoasdklj\n asdkfj\nasd");
             osw.flush();
             osw.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private String readFile()
+    {
+        String data = "";
+        String xml = "";
+        try {
+
             InputStream stream = getApplicationContext().openFileInput("testfile");
             InputStreamReader sr = new InputStreamReader(stream);
             BufferedReader br = new BufferedReader(sr);
-            data = br.readLine();
-            Log.d("Mastermind", "Data: " + data);
+            while((data = br.readLine()) != null)
+            {
+                Log.d("Mastermind", "Data: " + data);
+                xml += data;
+            }
+            br.close();
+            return xml;
         }
         catch (Exception e){
             e.printStackTrace();
         }
+        return "";
     }
     private void save()
     {
@@ -53,6 +73,7 @@ public class Settings extends Activity {
     }
     public void chooseColor(View view)
     {
+
         int farbe = 0xffffff;
         switch(view.getId()) {
             case R.id.b1:{farbe = ContextCompat.getColor(getApplicationContext(), R.color.c1); break;}
