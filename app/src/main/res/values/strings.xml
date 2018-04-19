@@ -41,4 +41,6 @@
     <string name="colors">Farben</string>
     <string name="color_8">Farbe 8</string>
     <string name="save_settings">Einstellungen speichern</string>
+    <string name="ok">OK</string>
+    <string name="cancel">abbrechen</string>
 </resources>

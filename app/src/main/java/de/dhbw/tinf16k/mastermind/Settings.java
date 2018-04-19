@@ -37,7 +37,7 @@ public class Settings extends Activity {
 
             FileOutputStream fOut = openFileOutput("testfile", MODE_PRIVATE);
             OutputStreamWriter osw = new OutputStreamWriter(fOut);
-            osw.write("Hier is ja data drinne!\n asdofoasdklj\n asdkfj\nasd");
+            osw.write("Hier sind deine Daten drin!\n asdofoasdklj\n asdkfj\nasd");
             osw.flush();
             osw.close();
         }
@@ -97,14 +97,14 @@ public class Settings extends Activity {
                     //toast("onColorSelected: 0x" + Integer.toHexString(selectedColor));
                 }
             })
-            .setPositiveButton("ok", new ColorPickerClickListener() {
+            .setPositiveButton(R.string.ok, new ColorPickerClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
                     //changeBackgroundColor(selectedColor);
 
                 }
             })
-            .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+            .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                 }
