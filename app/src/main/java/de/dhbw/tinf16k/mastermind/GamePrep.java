@@ -62,24 +62,24 @@ public class GamePrep extends Activity {
     public void onButtonClick(View v) {
         if (v.getId() == R.id.btn_create_game) {
             RadioButton rbTmp = findViewById(rgAnzahlFarben.getCheckedRadioButtonId());
-            int iAnzahlFarben = Integer.parseInt(rbTmp.getText().toString());
+            int colorNumber = Integer.parseInt(rbTmp.getText().toString());
 
             rbTmp = findViewById(rgAnzahlStellen.getCheckedRadioButtonId());
-            int iAnzahlStellen = Integer.parseInt(rbTmp.getText().toString());
+            int holeNumber = Integer.parseInt(rbTmp.getText().toString());
 
-            boolean bLeereStellen = cbLeereStellen.isChecked();
-            boolean bFarbenMehrfach = cbFarbenMehrfach.isChecked();
+            boolean emptyHoleAllowed = cbLeereStellen.isChecked();
+            boolean doubleColorAllowed = cbFarbenMehrfach.isChecked();
 
-            int iAnzahlRunden = Integer.parseInt(nfAnzahlRunden.getText().toString());
+            int rowNumber = Integer.parseInt(nfAnzahlRunden.getText().toString());
 
-            boolean bComGame = cbComGame.isChecked();
+            boolean gameModeFlag = cbComGame.isChecked();
             Intent i = new Intent(GamePrep.this, Game.class);
-            i.putExtra("Anzahl-Farben", iAnzahlFarben);
-            i.putExtra("Anzahl-Stellen", iAnzahlStellen);
-            i.putExtra("leere-Stellen", bLeereStellen);
-            i.putExtra("Farben-mehrfach", bFarbenMehrfach);
-            i.putExtra("Anzahl-Runden", iAnzahlRunden);
-            i.putExtra("Mensch-gegen-Maschine", bComGame);
+            i.putExtra("Color-Number", colorNumber);
+            i.putExtra("Hole-Number", holeNumber);
+            i.putExtra("empty-Hole-allowed", emptyHoleAllowed);
+            i.putExtra("double-Color-allowed", doubleColorAllowed);
+            i.putExtra("Row-Number", rowNumber);
+            i.putExtra("Game-Mode-Flag", gameModeFlag);
 
             startActivity(i);
         } else if (v.getId() == R.id.rbFarben5) {

@@ -17,13 +17,20 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Game extends Activity implements View.OnClickListener {
-    private int iAnzahlFarben, iAnzahlStellen, iAnzahlRunden;
-    private boolean bLeereStellen, bFarbenMehrfach, bComGame;
-    private List<LinearLayout> rowList = new LinkedList<>();
+    private int colorNumber, holeNumber, rowNumber;
+    private boolean emptyHoleAllowed, doubleColorAllowed;
+    private Row masterCode;
+    private float score;
+    public int gameModeFlag;
+    private List<Row> rowList;
     private int iBtnSize;
     private Drawable drawableCircle[] = new Drawable[9];
-    private LinearLayout.LayoutParams lpBtnLayout, lpEvalPinLayout, lpSelectionBtnLayout;
+    private LinearLayout.LayoutParams lpBtnLayout, lpSelectionBtnLayout, lpEvalPinLayout;
     private LinearLayout llGameBoard, llPegSelection;
+
+    public Game() {
+        rowList = new LinkedList<>();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +39,12 @@ public class Game extends Activity implements View.OnClickListener {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            iAnzahlFarben = extras.getInt("Anzahl-Farben");
-            iAnzahlStellen = extras.getInt("Anzahl-Stellen");
-            bLeereStellen = extras.getBoolean("leere-Stellen");
-            bFarbenMehrfach = extras.getBoolean("Farben-mehrfach");
-            iAnzahlRunden = extras.getInt("Anzahl-Runden");
-            bComGame = extras.getBoolean("Mensch-gegen-Maschine");
+            colorNumber = extras.getInt("Color-Number");
+            holeNumber = extras.getInt("Hole-Number");
+            emptyHoleAllowed = extras.getBoolean("empty-Hole-allowed");
+            doubleColorAllowed = extras.getBoolean("double-Color-allowed");
+            rowNumber = extras.getInt("Row-Number");
+            gameModeFlag = extras.getBoolean("Game-Mode-Flag") ? 1 : 0;//Total bogus to use an int, but it is stated so in class diagram
         }
 
         llGameBoard = findViewById(R.id.llBoard);
@@ -77,8 +84,8 @@ public class Game extends Activity implements View.OnClickListener {
     }
 
     private void createRow() {
-        rowList.add(new LinearLayout(this));
-        for (int i = 0; i < iAnzahlStellen; i++) {
+        rowList.add(new Row(this));
+        for (int i = 0; i < holeNumber; i++) {
             Button tmpButton = new Button(this);
             tmpButton.setId(i);
             tmpButton.setOnClickListener(this);
@@ -93,12 +100,12 @@ public class Game extends Activity implements View.OnClickListener {
         LinearLayout tmpEvalRow1 = new LinearLayout(this);
         LinearLayout tmpEvalRow2 = new LinearLayout(this);
 
-        for (int i = 0; i < iAnzahlStellen; i++) {
+        for (int i = 0; i < holeNumber; i++) {
             ImageView tmpEvalPin = new ImageView(this);
             tmpEvalPin.setId(i);
             tmpEvalPin.setBackground(drawableCircle[0]);
             tmpEvalPin.setLayoutParams(lpEvalPinLayout);
-            if (i < iAnzahlStellen / 2)
+            if (i < holeNumber / 2)
                 tmpEvalRow1.addView(tmpEvalPin);
             else
                 tmpEvalRow2.addView(tmpEvalPin);
@@ -111,7 +118,7 @@ public class Game extends Activity implements View.OnClickListener {
     }
 
     private void createPegSelection() {
-        for (int i = 0; i < iAnzahlFarben; i++) {
+        for (int i = 0; i < colorNumber; i++) {
             Button tmpButton = new Button(this);
             tmpButton.setId(i);
             tmpButton.setOnClickListener(this);
