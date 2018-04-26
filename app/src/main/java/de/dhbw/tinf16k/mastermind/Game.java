@@ -28,6 +28,7 @@ public class Game extends Activity implements View.OnClickListener {
     private Drawable drawableCircle[] = new Drawable[9];
     private LinearLayout.LayoutParams lpSelectionBtnLayout, lpEvalPinLayout;
     private LinearLayout llGameBoard, llPegSelection;
+    private Button ballSelection[];
 
     public Game() {
         rowList = new LinkedList<>();
@@ -54,13 +55,13 @@ public class Game extends Activity implements View.OnClickListener {
         btnSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 26, getResources().getDisplayMetrics());
         lpEvalPinLayout = new LinearLayout.LayoutParams(btnSize / 2, btnSize / 2);
         lpEvalPinLayout.setMargins(btnSize / 15, btnSize / 15, btnSize / 15, btnSize / 15);
-        lpSelectionBtnLayout = new LinearLayout.LayoutParams(btnSize, btnSize);
+        lpSelectionBtnLayout = new LinearLayout.LayoutParams(btnSize * 15 / 10, btnSize * 15 / 10);
         lpSelectionBtnLayout.setMargins(btnSize / 15, btnSize / 15, btnSize / 15, btnSize / 15);
 
         for (int i = 0; i < 9; i++) {
             drawableCircle[i] = getDrawable(R.drawable.circle);
         }
-        drawableCircle[8].setTint(getResources().getColor(R.color.c8));
+        drawableCircle[0].setTint(getResources().getColor(R.color.c0));
         drawableCircle[1].setTint(getResources().getColor(R.color.c1));
         drawableCircle[2].setTint(getResources().getColor(R.color.c2));
         drawableCircle[3].setTint(getResources().getColor(R.color.c3));
@@ -68,7 +69,7 @@ public class Game extends Activity implements View.OnClickListener {
         drawableCircle[5].setTint(getResources().getColor(R.color.c5));
         drawableCircle[6].setTint(getResources().getColor(R.color.c6));
         drawableCircle[7].setTint(getResources().getColor(R.color.c7));
-        drawableCircle[0].setTint(getResources().getColor(R.color.c0));
+        drawableCircle[8].setTint(getResources().getColor(R.color.c8));
 
         masterCode = generateRandomColorCode(colorNumber, holeNumber, emptyHoleAllowed, doubleColorAllowed);
 
@@ -79,17 +80,23 @@ public class Game extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        int clickedBtn = view.getId();
-        if (clickedBtn == R.id.btnCommitTurn) {
+        int clickedBtnId = view.getId();
+        if (clickedBtnId == R.id.btnCommitTurn) {
             validateColorCode();
-        } else if (clickedBtn - 465423 >= 1 & clickedBtn - 465423 <= colorNumber) {
-            selectBall(clickedBtn, holeNumber);
+        } else {
+            for (View ballSelectBtn : ballSelection)
+                if (view == ballSelectBtn)
+                    selectBall(ballSelectBtn.getId(), holeNumber);
+
+
+            for (View ballRowButton : rowList.get(rowList.size() - 1).getBalls())
+                if (view == ballRowButton)
+                    rowList.get(rowList.size() - 1).unSetBall(ballRowButton.getId());
         }
     }
 
     private void createRow() {
         rowList.add(new Row(this, holeNumber, this, btnSize));
-
 
         LinearLayout tmpEval = new LinearLayout(this);
         tmpEval.setOrientation(LinearLayout.VERTICAL);
@@ -115,17 +122,19 @@ public class Game extends Activity implements View.OnClickListener {
     }
 
     private void createBallSelection() {
-        for (int i = 1; i <= colorNumber; i++) {
-            Button tmpButton = new Button(this);
-            tmpButton.setId(i + 465423);
-            tmpButton.setOnClickListener(this);
-            tmpButton.setBackground(drawableCircle[i]);
-            tmpButton.setLayoutParams(lpSelectionBtnLayout);
-            llPegSelection.addView(tmpButton);
+        ballSelection = new Button[colorNumber];
+        for (int i = 0; i < colorNumber; i++) {
+            ballSelection[i] = new Button(this);
+            ballSelection[i].setId(i + 1);
+            ballSelection[i].setOnClickListener(this);
+            ballSelection[i].setBackground(drawableCircle[i + 1]);
+            ballSelection[i].setLayoutParams(lpSelectionBtnLayout);
+            llPegSelection.addView(ballSelection[i]);
         }
     }
 
-    private int[] generateRandomColorCode(int colorNumber, int holeNumber, boolean emptyHoleAllowed,
+    private int[] generateRandomColorCode(int colorNumber, int holeNumber,
+                                          boolean emptyHoleAllowed,
                                           boolean doubleColorAllowed) {
         Random r = new Random();
         int randVal, colorVal;
@@ -193,20 +202,12 @@ public class Game extends Activity implements View.OnClickListener {
     private void selectBall(int colorNumberOfBall, int numberOfHoles) {
         boolean setBalls[] = rowList.get(rowList.size() - 1).getSetBalls();
         int i = 0;
-        Log.d("val", Integer.toString(i));
         while (setBalls[i]) {
             i++;
-            if (i >= numberOfHoles) {
+            if (i >= numberOfHoles)
                 return;
-            }
-            Log.d("val", Integer.toString(i));
         }
-        Log.d("val", Integer.toString(i));
 
-        if (i < numberOfHoles) {
-            colorNumberOfBall -= 465423;//Rückrechnung auf korrekte Farbnummer
-            rowList.get(rowList.size() - 1).setBall(i, colorNumberOfBall);
-            Log.d("Select", Integer.toString(i));
-        }
+        rowList.get(rowList.size() - 1).setBall(i, colorNumberOfBall);
     }
 }

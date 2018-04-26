@@ -5,13 +5,17 @@ import android.graphics.drawable.Drawable;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-class Row extends LinearLayout{
+class Row extends LinearLayout {
     private int rightPlaces, rightColors;
     private boolean setBalls[];
     private Button balls[]; //Contains the ball variation of the row, a maximum of 8 Balls
     private Drawable drawableCircle[] = new Drawable[9];
 
     private LinearLayout.LayoutParams lpBtnLayout;
+
+    public Row(Context context){
+        super(context);
+    }
 
     public Row(Context context, int holeNumber, OnClickListener ocListenr, int btnSize) {
         super(context);
@@ -22,7 +26,7 @@ class Row extends LinearLayout{
         for (int i = 0; i < 9; i++) {
             drawableCircle[i] = context.getDrawable(R.drawable.circle);
         }
-        drawableCircle[8].setTint(getResources().getColor(R.color.c8));
+        drawableCircle[0].setTint(getResources().getColor(R.color.c0));
         drawableCircle[1].setTint(getResources().getColor(R.color.c1));
         drawableCircle[2].setTint(getResources().getColor(R.color.c2));
         drawableCircle[3].setTint(getResources().getColor(R.color.c3));
@@ -30,13 +34,14 @@ class Row extends LinearLayout{
         drawableCircle[5].setTint(getResources().getColor(R.color.c5));
         drawableCircle[6].setTint(getResources().getColor(R.color.c6));
         drawableCircle[7].setTint(getResources().getColor(R.color.c7));
-        drawableCircle[0].setTint(getResources().getColor(R.color.c0));
+        drawableCircle[8].setTint(getResources().getColor(R.color.c8));
 
-        balls= new Button[holeNumber];
+        balls = new Button[holeNumber];
         setBalls = new boolean[holeNumber];
 
         for (int i = 0; i < holeNumber; i++) {
             balls[i] = new Button(context);
+            balls[i].setId(i);
             balls[i].setOnClickListener(ocListenr);
             balls[i].setBackground(drawableCircle[0]);
             balls[i].setLayoutParams(lpBtnLayout);
@@ -47,6 +52,10 @@ class Row extends LinearLayout{
 
     public Button[] getBalls() {
         return balls;
+    }
+
+    public Button getBall(int ball) {
+        return balls[ball];
     }
 
     public boolean[] getSetBalls() {
@@ -60,6 +69,11 @@ class Row extends LinearLayout{
     public void setBall(int ball, int color) {
         this.balls[ball].setBackground(drawableCircle[color]);
         setBalls[ball] = true;
+    }
+
+    public void unSetBall(int ball) {
+        this.balls[ball].setBackground(drawableCircle[0]);
+        setBalls[ball] = false;
     }
 
     public int getRightPlaces() {
