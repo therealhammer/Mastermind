@@ -133,62 +133,64 @@ public class Game extends Activity implements View.OnClickListener {
     private Row generateRandomColorCode(int colorNumber, int holeNumber, boolean emptyHoleAllowed,
                                         boolean doubleColorAllowed) {
         Random r = new Random();
-        int randVal;
+        int randVal, colorVal;
         Row masterRow = new Row(this);
         colorNumber = emptyHoleAllowed ? colorNumber + 1 : colorNumber;
         if (doubleColorAllowed) {
             for (int i = 0; i < holeNumber; i++) {
                 randVal = r.nextInt(colorNumber);
-                randVal = emptyHoleAllowed ? randVal : randVal + 1;
-                masterRow.setBall(i, randVal);
+                colorVal = emptyHoleAllowed ? randVal : randVal + 1;
+                masterRow.setBall(i, colorVal);
             }
         } else {
             int availableColors[] = new int[colorNumber];
             for (int i = 0; i < colorNumber; i++) {
                 availableColors[i] = emptyHoleAllowed ? i : i + 1;
             }
-            for (int i = 0, j = colorNumber-1; i < holeNumber; i++, j--) {
+            for (int i = 0, j = colorNumber; i < holeNumber; i++, j--) {
                 randVal = r.nextInt(j);
-                masterRow.setBall(i,availableColors[randVal]);
-                availableColors[randVal]=availableColors[j];
+                colorVal = emptyHoleAllowed ? availableColors[randVal] : availableColors[randVal];
+
+                masterRow.setBall(i, colorVal);
+                availableColors[randVal] = availableColors[j - 1];
             }
         }
         return masterRow;
     }
 
-    private boolean validateColorCode(Row inRow){
+    private boolean validateColorCode(Row inRow) {
         return true;
     }
 
-    private boolean compareColorCode(Row masterCode, Row tryCode){
+    private boolean compareColorCode(Row masterCode, Row tryCode) {
         return false;
     }
 
-    private void generateCodeBySecondPlayer(){
+    private void generateCodeBySecondPlayer() {
 
     }
 
-    private float computeScore(){
+    private float computeScore() {
         return 0;
     }
 
-    private void commitScore(){
+    private void commitScore() {
 
     }
 
-    private boolean saveGameDataToFile(){
+    private boolean saveGameDataToFile() {
         return true;
     }
 
-    private void pauseGame(){
+    private void pauseGame() {
 
     }
 
-    private void stopGame(){
+    private void stopGame() {
 
     }
 
-    public void loadGameDataFromFile(){
+    public void loadGameDataFromFile() {
 
     }
 }
