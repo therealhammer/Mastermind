@@ -15,13 +15,13 @@ import android.widget.LinearLayout;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 public class Game extends Activity implements View.OnClickListener {
     private int colorNumber, holeNumber, rowNumber;
-    private boolean emptyHoleAllowed, doubleColorAllowed;
+    private boolean emptyHoleAllowed, doubleColorAllowed, againstComputer;
     private Row masterCode;
     private float score;
-    public int gameModeFlag;
     private List<Row> rowList;
     private int iBtnSize;
     private Drawable drawableCircle[] = new Drawable[9];
@@ -44,7 +44,7 @@ public class Game extends Activity implements View.OnClickListener {
             emptyHoleAllowed = extras.getBoolean("empty-Hole-allowed");
             doubleColorAllowed = extras.getBoolean("double-Color-allowed");
             rowNumber = extras.getInt("Row-Number");
-            gameModeFlag = extras.getBoolean("Game-Mode-Flag") ? 1 : 0;//Total bogus to use an int, but it is stated so in class diagram
+            againstComputer = extras.getBoolean("against-Computer");
         }
 
         llGameBoard = findViewById(R.id.llBoard);
@@ -58,10 +58,10 @@ public class Game extends Activity implements View.OnClickListener {
         lpSelectionBtnLayout = new LinearLayout.LayoutParams(iBtnSize, iBtnSize);
         lpSelectionBtnLayout.setMargins(iBtnSize / 15, iBtnSize / 15, iBtnSize / 15, iBtnSize / 15);
 
-        for (int i=0; i<9; i++) {
+        for (int i = 0; i < 9; i++) {
             drawableCircle[i] = getDrawable(R.drawable.circle);
         }
-        drawableCircle[0].setTint(getResources().getColor(R.color.white));
+        drawableCircle[8].setTint(getResources().getColor(R.color.c8));
         drawableCircle[1].setTint(getResources().getColor(R.color.c1));
         drawableCircle[2].setTint(getResources().getColor(R.color.c2));
         drawableCircle[3].setTint(getResources().getColor(R.color.c3));
@@ -69,10 +69,12 @@ public class Game extends Activity implements View.OnClickListener {
         drawableCircle[5].setTint(getResources().getColor(R.color.c5));
         drawableCircle[6].setTint(getResources().getColor(R.color.c6));
         drawableCircle[7].setTint(getResources().getColor(R.color.c7));
-        drawableCircle[8].setTint(getResources().getColor(R.color.c8));
+        drawableCircle[0].setTint(getResources().getColor(R.color.c0));
+
+        masterCode = generateRandomColorCode(colorNumber, holeNumber, emptyHoleAllowed, doubleColorAllowed);
 
         createRow();
-        createPegSelection();
+        createBallSelection();
     }
 
 
@@ -117,14 +119,76 @@ public class Game extends Activity implements View.OnClickListener {
         llGameBoard.addView(rowList.get(rowList.size() - 1));
     }
 
-    private void createPegSelection() {
+    private void createBallSelection() {
         for (int i = 0; i < colorNumber; i++) {
             Button tmpButton = new Button(this);
             tmpButton.setId(i);
             tmpButton.setOnClickListener(this);
-            tmpButton.setBackground(drawableCircle[i+1]);
+            tmpButton.setBackground(drawableCircle[i + 1]);
             tmpButton.setLayoutParams(lpBtnLayout);
             llPegSelection.addView(tmpButton);
         }
+    }
+
+    private Row generateRandomColorCode(int colorNumber, int holeNumber, boolean emptyHoleAllowed,
+                                        boolean doubleColorAllowed) {
+        Random r = new Random();
+        int randVal;
+        Row masterRow = new Row(this);
+        colorNumber = emptyHoleAllowed ? colorNumber + 1 : colorNumber;
+        if (doubleColorAllowed) {
+            for (int i = 0; i < holeNumber; i++) {
+                randVal = r.nextInt(colorNumber);
+                randVal = emptyHoleAllowed ? randVal : randVal + 1;
+                masterRow.setBall(i, randVal);
+            }
+        } else {
+            int availableColors[] = new int[colorNumber];
+            for (int i = 0; i < colorNumber; i++) {
+                availableColors[i] = emptyHoleAllowed ? i : i + 1;
+            }
+            for (int i = 0, j = colorNumber-1; i < holeNumber; i++, j--) {
+                randVal = r.nextInt(j);
+                masterRow.setBall(i,availableColors[randVal]);
+                availableColors[randVal]=availableColors[j];
+            }
+        }
+        return masterRow;
+    }
+
+    private boolean validateColorCode(Row inRow){
+        return true;
+    }
+
+    private boolean compareColorCode(Row masterCode, Row tryCode){
+        return false;
+    }
+
+    private void generateCodeBySecondPlayer(){
+
+    }
+
+    private float computeScore(){
+        return 0;
+    }
+
+    private void commitScore(){
+
+    }
+
+    private boolean saveGameDataToFile(){
+        return true;
+    }
+
+    private void pauseGame(){
+
+    }
+
+    private void stopGame(){
+
+    }
+
+    public void loadGameDataFromFile(){
+
     }
 }

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.widget.LinearLayout;
 
 class Row extends LinearLayout{
+    private int holeNumber, rightPlaces, rightColors;
     private int balls[] = new int[8]; //Contains the ball variation of the row, a maximum of 8 Balls
-    private int whitePins, blackPins;
 
     public Row(Context context) {
         super(context);
@@ -19,19 +19,23 @@ class Row extends LinearLayout{
         this.balls = balls;
     }
 
-    public int getWhitePins() {
-        return whitePins;
+    public void setBall(int ball, int color) {
+        this.balls[ball] = color;
     }
 
-    public void setWhitePins(int whitePins) {
-        this.whitePins = whitePins;
+    public int getRightPlaces() {
+        return rightPlaces;
     }
 
-    public int getBlackPins() {
-        return blackPins;
+    public void setRightPlaces(int rightPlaces) {
+        this.rightPlaces = rightPlaces;
     }
 
-    public void setBlackPins(int blackPins) {
-        this.blackPins = blackPins;
+    public int getRightColors() {
+        return rightColors;
+    }
+
+    public void setRightColors(int rightColors) {
+        this.rightColors = rightColors;
     }
 }

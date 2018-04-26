@@ -72,14 +72,14 @@ public class GamePrep extends Activity {
 
             int rowNumber = Integer.parseInt(nfAnzahlRunden.getText().toString());
 
-            boolean gameModeFlag = cbComGame.isChecked();
+            boolean againstComputer = cbComGame.isChecked();
             Intent i = new Intent(GamePrep.this, Game.class);
             i.putExtra("Color-Number", colorNumber);
             i.putExtra("Hole-Number", holeNumber);
             i.putExtra("empty-Hole-allowed", emptyHoleAllowed);
             i.putExtra("double-Color-allowed", doubleColorAllowed);
             i.putExtra("Row-Number", rowNumber);
-            i.putExtra("Game-Mode-Flag", gameModeFlag);
+            i.putExtra("against-Computer", againstComputer);
 
             startActivity(i);
         } else if (v.getId() == R.id.rbFarben5) {

@@ -78,7 +78,7 @@ public class Settings extends Activity {
         switch(view.getId()) {
             case R.id.b1:{farbe = ContextCompat.getColor(getApplicationContext(), R.color.c1); break;}
             case R.id.b2:{farbe = ContextCompat.getColor(getApplicationContext(), R.color.c2); break;}
-            case R.id.b3:{farbe = ContextCompat.getColor(getApplicationContext(), R.color.c3); break;}
+            case R.id.b3:{farbe = ContextCompat.getColor(getApplicationContext(), R.color.c0); break;}
             case R.id.b4:{farbe = ContextCompat.getColor(getApplicationContext(), R.color.c4); break;}
             case R.id.b5:{farbe = ContextCompat.getColor(getApplicationContext(), R.color.c5); break;}
             case R.id.b6:{farbe = ContextCompat.getColor(getApplicationContext(), R.color.c6); break;}

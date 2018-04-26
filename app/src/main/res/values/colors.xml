@@ -6,13 +6,14 @@
     <color name="white">#e0e0e0</color>
     <color name="gray">#bdbdbd</color>
     <color name="black">#000000</color>
+    <color name="c0">#F1F1F0</color>
     <color name="c1">#FFFF00</color>
     <color name="c2">#FF00FF</color>
-    <color name="c3">#FF0000</color>
+    <color name="c3">#F3503F</color>
     <color name="c4">#00FFFF</color>
     <color name="c5">#0000FF</color>
     <color name="c6">#00FF00</color>
     <color name="c7">#800080</color>
     <color name="c8">#800000</color>
-    <color name="empty">#000000FF</color>
+    <color name="empty">#1F0000FF</color>
 </resources>
