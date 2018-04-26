@@ -7,6 +7,7 @@ package de.dhbw.tinf16k.mastermind;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
@@ -23,9 +24,9 @@ public class Game extends Activity implements View.OnClickListener {
     private Row masterCode;
     private float score;
     private List<Row> rowList;
-    private int iBtnSize;
+    private int btnSize;
     private Drawable drawableCircle[] = new Drawable[9];
-    private LinearLayout.LayoutParams lpBtnLayout, lpSelectionBtnLayout, lpEvalPinLayout;
+    private LinearLayout.LayoutParams lpSelectionBtnLayout, lpEvalPinLayout;
     private LinearLayout llGameBoard, llPegSelection;
 
     public Game() {
@@ -50,13 +51,11 @@ public class Game extends Activity implements View.OnClickListener {
         llGameBoard = findViewById(R.id.llBoard);
         llPegSelection = findViewById(R.id.llPegSelection);
 
-        iBtnSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 26, getResources().getDisplayMetrics());
-        lpEvalPinLayout = new LinearLayout.LayoutParams(iBtnSize / 2, iBtnSize / 2);
-        lpEvalPinLayout.setMargins(iBtnSize / 15, iBtnSize / 15, iBtnSize / 15, iBtnSize / 15);
-        lpBtnLayout = new LinearLayout.LayoutParams(iBtnSize, iBtnSize);
-        lpBtnLayout.setMargins(iBtnSize / 15, iBtnSize / 15, iBtnSize / 15, iBtnSize / 15);
-        lpSelectionBtnLayout = new LinearLayout.LayoutParams(iBtnSize, iBtnSize);
-        lpSelectionBtnLayout.setMargins(iBtnSize / 15, iBtnSize / 15, iBtnSize / 15, iBtnSize / 15);
+        btnSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 26, getResources().getDisplayMetrics());
+        lpEvalPinLayout = new LinearLayout.LayoutParams(btnSize / 2, btnSize / 2);
+        lpEvalPinLayout.setMargins(btnSize / 15, btnSize / 15, btnSize / 15, btnSize / 15);
+        lpSelectionBtnLayout = new LinearLayout.LayoutParams(btnSize, btnSize);
+        lpSelectionBtnLayout.setMargins(btnSize / 15, btnSize / 15, btnSize / 15, btnSize / 15);
 
         for (int i = 0; i < 9; i++) {
             drawableCircle[i] = getDrawable(R.drawable.circle);
@@ -80,21 +79,17 @@ public class Game extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.btnCommitTurn) {
-            createRow();
+        int clickedBtn = view.getId();
+        if (clickedBtn == R.id.btnCommitTurn) {
+            validateColorCode();
+        } else if (clickedBtn - 465423 >= 1 & clickedBtn - 465423 <= colorNumber) {
+            selectBall(clickedBtn, holeNumber);
         }
     }
 
     private void createRow() {
-        rowList.add(new Row(this));
-        for (int i = 0; i < holeNumber; i++) {
-            Button tmpButton = new Button(this);
-            tmpButton.setId(i);
-            tmpButton.setOnClickListener(this);
-            tmpButton.setBackground(drawableCircle[0]);
-            tmpButton.setLayoutParams(lpBtnLayout);
-            rowList.get(rowList.size() - 1).addView(tmpButton);
-        }
+        rowList.add(new Row(this, holeNumber, this, btnSize));
+
 
         LinearLayout tmpEval = new LinearLayout(this);
         tmpEval.setOrientation(LinearLayout.VERTICAL);
@@ -104,7 +99,7 @@ public class Game extends Activity implements View.OnClickListener {
 
         for (int i = 0; i < holeNumber; i++) {
             ImageView tmpEvalPin = new ImageView(this);
-            tmpEvalPin.setId(i);
+            tmpEvalPin.setId(i + 943284);
             tmpEvalPin.setBackground(drawableCircle[0]);
             tmpEvalPin.setLayoutParams(lpEvalPinLayout);
             if (i < holeNumber / 2)
@@ -120,12 +115,12 @@ public class Game extends Activity implements View.OnClickListener {
     }
 
     private void createBallSelection() {
-        for (int i = 0; i < colorNumber; i++) {
+        for (int i = 1; i <= colorNumber; i++) {
             Button tmpButton = new Button(this);
-            tmpButton.setId(i);
+            tmpButton.setId(i + 465423);
             tmpButton.setOnClickListener(this);
-            tmpButton.setBackground(drawableCircle[i + 1]);
-            tmpButton.setLayoutParams(lpBtnLayout);
+            tmpButton.setBackground(drawableCircle[i]);
+            tmpButton.setLayoutParams(lpSelectionBtnLayout);
             llPegSelection.addView(tmpButton);
         }
     }
@@ -134,7 +129,7 @@ public class Game extends Activity implements View.OnClickListener {
                                         boolean doubleColorAllowed) {
         Random r = new Random();
         int randVal, colorVal;
-        Row masterRow = new Row(this);
+        Row masterRow = new Row(this, holeNumber, this, btnSize);
         colorNumber = emptyHoleAllowed ? colorNumber + 1 : colorNumber;
         if (doubleColorAllowed) {
             for (int i = 0; i < holeNumber; i++) {
@@ -158,7 +153,8 @@ public class Game extends Activity implements View.OnClickListener {
         return masterRow;
     }
 
-    private boolean validateColorCode(Row inRow) {
+    private boolean validateColorCode() {
+        createRow();
         return true;
     }
 
@@ -192,5 +188,18 @@ public class Game extends Activity implements View.OnClickListener {
 
     public void loadGameDataFromFile() {
 
+    }
+
+    private void selectBall(int colorNumberOfBall, int numberOfHoles) {
+        int currentRowBalls[] = rowList.get(rowList.size() - 1).getBalls();
+        int i = 0;
+        while (currentRowBalls[i] != 0)
+            i++;
+
+        if (i < numberOfHoles) {
+            colorNumberOfBall -= 465423;//Rückrechnung auf korrekte Farbnummer
+            rowList.get(rowList.size() - 1).setBall(i, colorNumberOfBall);
+            Log.d("Select", Integer.toString(i));
+        }
     }
 }
