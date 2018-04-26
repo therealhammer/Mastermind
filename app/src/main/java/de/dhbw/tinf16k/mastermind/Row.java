@@ -6,8 +6,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 class Row extends LinearLayout{
-    private int holeNumber, rightPlaces, rightColors;
-    private int balls[] = {0,0,0,0,0,0,0,0}; //Contains the ball variation of the row, a maximum of 8 Balls
+    private int rightPlaces, rightColors;
+    private boolean setBalls[];
+    private Button balls[]; //Contains the ball variation of the row, a maximum of 8 Balls
     private Drawable drawableCircle[] = new Drawable[9];
 
     private LinearLayout.LayoutParams lpBtnLayout;
@@ -31,29 +32,34 @@ class Row extends LinearLayout{
         drawableCircle[7].setTint(getResources().getColor(R.color.c7));
         drawableCircle[0].setTint(getResources().getColor(R.color.c0));
 
-        for (int i = 0; i < holeNumber; i++) {
-            Button tmpButton = new Button(context);
-            tmpButton.setId(i+3257612);
-            tmpButton.setOnClickListener(ocListenr);
-            tmpButton.setBackground(drawableCircle[0]);
-            tmpButton.setLayoutParams(lpBtnLayout);
+        balls= new Button[holeNumber];
+        setBalls = new boolean[holeNumber];
 
-            this.addView(tmpButton);
+        for (int i = 0; i < holeNumber; i++) {
+            balls[i] = new Button(context);
+            balls[i].setOnClickListener(ocListenr);
+            balls[i].setBackground(drawableCircle[0]);
+            balls[i].setLayoutParams(lpBtnLayout);
+
+            this.addView(balls[i]);
         }
     }
 
-    public int[] getBalls() {
+    public Button[] getBalls() {
         return balls;
     }
 
-    public void setBalls(int[] balls) {
+    public boolean[] getSetBalls() {
+        return setBalls;
+    }
+
+    public void setBalls(Button[] balls) {
         this.balls = balls;
     }
 
     public void setBall(int ball, int color) {
-        this.balls[ball] = color;
-        Button tmpButton = findViewById(ball+3257612);
-        tmpButton.setBackground(drawableCircle[color]);
+        this.balls[ball].setBackground(drawableCircle[color]);
+        setBalls[ball] = true;
     }
 
     public int getRightPlaces() {

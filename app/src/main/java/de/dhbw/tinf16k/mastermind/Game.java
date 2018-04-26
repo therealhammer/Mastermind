@@ -21,7 +21,7 @@ import java.util.Random;
 public class Game extends Activity implements View.OnClickListener {
     private int colorNumber, holeNumber, rowNumber;
     private boolean emptyHoleAllowed, doubleColorAllowed, againstComputer;
-    private Row masterCode;
+    private int masterCode[];
     private float score;
     private List<Row> rowList;
     private int btnSize;
@@ -125,17 +125,17 @@ public class Game extends Activity implements View.OnClickListener {
         }
     }
 
-    private Row generateRandomColorCode(int colorNumber, int holeNumber, boolean emptyHoleAllowed,
-                                        boolean doubleColorAllowed) {
+    private int[] generateRandomColorCode(int colorNumber, int holeNumber, boolean emptyHoleAllowed,
+                                          boolean doubleColorAllowed) {
         Random r = new Random();
         int randVal, colorVal;
-        Row masterRow = new Row(this, holeNumber, this, btnSize);
+        int masterRow[] = new int[holeNumber];
         colorNumber = emptyHoleAllowed ? colorNumber + 1 : colorNumber;
         if (doubleColorAllowed) {
             for (int i = 0; i < holeNumber; i++) {
                 randVal = r.nextInt(colorNumber);
                 colorVal = emptyHoleAllowed ? randVal : randVal + 1;
-                masterRow.setBall(i, colorVal);
+                masterRow[i] = colorVal;
             }
         } else {
             int availableColors[] = new int[colorNumber];
@@ -146,7 +146,7 @@ public class Game extends Activity implements View.OnClickListener {
                 randVal = r.nextInt(j);
                 colorVal = emptyHoleAllowed ? availableColors[randVal] : availableColors[randVal];
 
-                masterRow.setBall(i, colorVal);
+                masterRow[i] = colorVal;
                 availableColors[randVal] = availableColors[j - 1];
             }
         }
@@ -191,10 +191,17 @@ public class Game extends Activity implements View.OnClickListener {
     }
 
     private void selectBall(int colorNumberOfBall, int numberOfHoles) {
-        int currentRowBalls[] = rowList.get(rowList.size() - 1).getBalls();
+        boolean setBalls[] = rowList.get(rowList.size() - 1).getSetBalls();
         int i = 0;
-        while (currentRowBalls[i] != 0)
+        Log.d("val", Integer.toString(i));
+        while (setBalls[i]) {
             i++;
+            if (i >= numberOfHoles) {
+                return;
+            }
+            Log.d("val", Integer.toString(i));
+        }
+        Log.d("val", Integer.toString(i));
 
         if (i < numberOfHoles) {
             colorNumberOfBall -= 465423;//Rückrechnung auf korrekte Farbnummer
