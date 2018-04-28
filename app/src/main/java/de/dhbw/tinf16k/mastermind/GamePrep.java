@@ -82,7 +82,6 @@ public class GamePrep extends Activity {
             i.putExtra("against-Computer", againstComputer);
 
             startActivity(i);
-        } else if (v.getId() == R.id.rbFarben5) {
         }
     }
 }

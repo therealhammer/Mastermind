@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tvStandards2"
+        android:id="@+id/tvSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -33,116 +31,127 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <TextView
-                android:id="@+id/tvColorNo"
+                android:id="@+id/tvSettingsColorNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/anzahl_farben"
-                android:labelFor="@+id/nfAnzahlFarben"
+                android:labelFor="@+id/rgSettingsAnzahlFarben"
                 android:text="@string/anzahl_farben" />
 
             <RadioGroup
-                android:id="@+id/rgAnzahlFarben"
+                android:id="@+id/rgSettingsAnzahlFarben"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:checkedButton="@+id/rbFarben5"
+                android:checkedButton="@+id/rbSettingsFarben5"
                 android:focusableInTouchMode="true"
-                android:onClick="onClick"
+                android:onClick="onSettingsButtonClick"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/rbFarben5"
+                    android:id="@+id/rbSettingsFarben5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:duplicateParentState="true"
+                    android:onClick="onSettingsButtonClick"
                     android:text="@string/_5" />
 
                 <RadioButton
-                    android:id="@+id/rbFarben6"
+                    android:id="@+id/rbSettingsFarben6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="onSettingsButtonClick"
                     android:text="@string/_6" />
 
                 <RadioButton
-                    android:id="@+id/rbFarben8"
+                    android:id="@+id/rbSettingsFarben8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="onSettingsButtonClick"
                     android:text="@string/_8" />
 
             </RadioGroup>
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textViewInTheSettings2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/anzahl_stellen"
-                android:labelFor="@+id/nfAnzahlStellen"
+                android:labelFor="@+id/rgSettingsAnzahlStellen"
                 android:text="@string/anzahl_stellen" />
 
             <RadioGroup
-                android:id="@+id/rgAnzahlStellen"
+                android:id="@+id/rgSettingsAnzahlStellen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:checkedButton="@+id/rbStellen3"
+                android:checkedButton="@+id/rbSettingsStellen3"
+                android:focusableInTouchMode="true"
+                android:onClick="onSettingsButtonClick"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/rbStellen3"
+                    android:id="@+id/rbSettingsStellen3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="onSettingsButtonClick"
                     android:text="@string/_3" />
 
                 <RadioButton
-                    android:id="@+id/rbStellen4"
+                    android:id="@+id/rbSettingsStellen4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="onSettingsButtonClick"
                     android:text="@string/_4" />
 
                 <RadioButton
-                    android:id="@+id/rbStellen5"
+                    android:id="@+id/rbSettingsStellen5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="onSettingsButtonClick"
                     android:text="@string/_5" />
 
                 <RadioButton
-                    android:id="@+id/rbStellen6"
+                    android:id="@+id/rbSettingsStellen6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="onSettingsButtonClick"
                     android:text="@string/_6" />
 
                 <RadioButton
-                    android:id="@+id/rbStellen8"
+                    android:id="@+id/rbSettingsStellen8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="onSettingsButtonClick"
                     android:text="@string/_8" />
 
             </RadioGroup>
 
             <CheckBox
-                android:id="@+id/cbLeereStellen"
+                android:id="@+id/cbSettingsLeereStellen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="onSettingsButtonClick"
                 android:text="@string/leere_stellen" />
 
             <CheckBox
-                android:id="@+id/cbFarbenMehrfach"
+                android:id="@+id/cbSettingsFarbenMehrfach"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="onSettingsButtonClick"
                 android:text="@string/farben_mehrfach" />
 
             <TextView
-                android:id="@+id/tvAnzRunden"
+                android:id="@+id/tvSettingsAnzRunden"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/anzahl_runden"
-                android:labelFor="@+id/nfAnzahlRunden"
+                android:labelFor="@+id/nfSettingsAnzahlRunden"
                 android:text="@string/anzahl_runden" />
 
             <LinearLayout
@@ -151,7 +160,7 @@
                 android:orientation="horizontal">
 
                 <SeekBar
-                    android:id="@+id/sbRunden"
+                    android:id="@+id/sbSettingsRunden"
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -160,7 +169,7 @@
                     android:progress="9" />
 
                 <EditText
-                    android:id="@+id/nfAnzahlRunden"
+                    android:id="@+id/nfSettingsAnzahlRunden"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
@@ -170,13 +179,14 @@
             </LinearLayout>
 
             <CheckBox
-                android:id="@+id/cbComGame"
+                android:id="@+id/cbSettingsComGame"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="onSettingsButtonClick"
                 android:text="@string/m_vs_m" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textViewInTheSettings3"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginBottom="4dp"
@@ -261,7 +271,7 @@
                 android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="onClick"
+                android:onClick="onSettingsButtonClick"
                 android:text="@string/save_settings" />
 
         </LinearLayout>
