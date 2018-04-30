@@ -11,6 +11,12 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <TextView
+        android:id="@+id/version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Version: " />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/copyright" />
