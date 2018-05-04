@@ -1,17 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/rules"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        android:layout_height="match_parent">
 
-    <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rules"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mastermind ist ein ist ein Logikspiel bei dem der Spieler versucht den Code zu erraten, den sich sein Gegner einfallen lassen hat. Im Nachfolgenden werden der allgemeine Spielablauf bzw. die Regeln näher erläutert:" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vor Spielbeginn müssen vom Spieler einige Parameter gesetzt werden. So muss als erstes die Anzahl der Farben (5, 6 oder 8), Anzahl der Stellen (3, 4, 5, 6 oder 8) und die Anzahl der Runden (beliebig) definiert werden. Auch kann bestimmt werden ob Stellen leer sein dürfen oder Farben mehrfach auftreten können." />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nach dem Spielstart wird vom Gegner unter den definierten Vorbedingungen eine zufällige Farbkombination definiert. " />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/image001" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="In der ersten Runde hat nun der Spieler die Möglichkeit seinen ersten Tipp abzugeben. Dazu gibt er eine gewünschte Farbkombination an den Stellen an." />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/image002" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nach der ersten Runde muss der Gegner dem Spieler ein Feedback zu seinem Tipp abgeben. Dies geschieht in den kleinen Stellen neben den eigentlichen Feldern. Jede weiße Stelle bedeutet, dass einer der geratenen Stifte korrekt ist, aber an der falschen Stelle. Jede schwarze Stelle bedeutet, dass einer der geratenen Stifte korrekt ist und an der richtigen Stelle steckt." />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/image003" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Der Ablauf aus Nummer 3 und 4 wiederholt sich nun solange bis entweder der Spieler die gesuchte Farbkombination gefunden hat (Spiel gewonnen) oder die vorher definierte maximale Rundenanzahl ohne positives Ergebnis erreicht worden ist (Spiel verloren)." />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!--<WebView
+        android:id="@+id/webV"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Lorem Ipsum" />
+        android:layout_height="match_parent" />-->
+
 </LinearLayout>
