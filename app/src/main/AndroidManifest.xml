@@ -37,6 +37,9 @@
         <activity
             android:name=".Rules"
             android:label="@string/rules"/>
+        <activity android:name=".Pop"
+            android:theme="@style/AppTheme.CustomPopup">
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"

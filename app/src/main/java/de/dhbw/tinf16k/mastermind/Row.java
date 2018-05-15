@@ -54,6 +54,27 @@ class Row extends LinearLayout {
         return balls;
     }
 
+    public int[] getBallsInt()
+    {
+        int[] ints = new int[8];
+        for(int i = 0; i < 8; i++)
+        {
+            if(setBalls[i] == true) {
+                if (balls[i].getBackground() == drawableCircle[0]) ints[i] = 0;
+                if (balls[i].getBackground() == drawableCircle[1]) ints[i] = 1;
+                if (balls[i].getBackground() == drawableCircle[2]) ints[i] = 2;
+                if (balls[i].getBackground() == drawableCircle[3]) ints[i] = 3;
+                if (balls[i].getBackground() == drawableCircle[4]) ints[i] = 4;
+                if (balls[i].getBackground() == drawableCircle[5]) ints[i] = 5;
+                if (balls[i].getBackground() == drawableCircle[6]) ints[i] = 6;
+                if (balls[i].getBackground() == drawableCircle[7]) ints[i] = 7;
+                if (balls[i].getBackground() == drawableCircle[8]) ints[i] = 8;
+            }
+            else ints[i] = 0;
+        }
+        return ints;
+    }
+
     public Button getBall(int ball) {
         return balls[ball];
     }

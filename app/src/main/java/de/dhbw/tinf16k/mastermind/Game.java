@@ -5,14 +5,20 @@ package de.dhbw.tinf16k.mastermind;
  */
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -48,6 +54,7 @@ public class Game extends Activity implements View.OnClickListener {
             rowNumber = extras.getInt("Row-Number");
             againstComputer = extras.getBoolean("against-Computer");
         }
+        generateCodeBySecondPlayer();
 
         llGameBoard = findViewById(R.id.llBoard);
         llPegSelection = findViewById(R.id.llPegSelection);
@@ -72,7 +79,7 @@ public class Game extends Activity implements View.OnClickListener {
         drawableCircle[8].setTint(getResources().getColor(R.color.c8));
 
         masterCode = generateRandomColorCode(colorNumber, holeNumber, emptyHoleAllowed, doubleColorAllowed);
-
+        if (againstComputer == false) generateCodeBySecondPlayer();
         createRow();
         createBallSelection();
     }
@@ -168,14 +175,27 @@ public class Game extends Activity implements View.OnClickListener {
     }
 
     private boolean compareColorCode(Row masterCode, Row tryCode) {
-        return false;
+        if (masterCode.getBallsInt() == tryCode.getBallsInt()) return true;
+        else return false;
+    }
+    private void generateCodeBySecondPlayer() {
+        startActivityForResult(new Intent(Game.this, Pop.class), 42);
+
+
+
+
     }
 
-    private void generateCodeBySecondPlayer() {
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode==42 && resultCode==RESULT_OK)
+        {
+            masterCode = data.getIntArrayExtra("Colors");
+        }
     }
 
     private float computeScore() {
+
         return 0;
     }
 
